@@ -176,7 +176,7 @@ void alegere()
 int main()
 {
 	while(1)
-	{		printf("\nSelect your language (pick a number):\n	1)english\n	2)romana\n	");
+	{		printf("\nSelect your language (pick a number):\n	1)english\n	2)romana\n");
 		scanf("%s",aleg);
 		if(strlen(aleg)==1)
 		{alg=(unsigned)(aleg[0]-'0');
