@@ -31,36 +31,24 @@ pixel* urcare(FILE *f,int *header)
 void partea_de_criptare()
 {
 	FILE *f,*g;
-	if(alg==1)printf("\nCe imagine veti cripta? Introduceti numele:\n");
+	if(alg==1)printf("\nWhat image do you encrypt? Enter the name:\n");
 	if(alg==2)printf("\nCe imagine veti cripta? Introduceti numele:\n");
-	if(alg==3)printf("\nCe imagine veti cripta? Introduceti numele:\n");
-	if(alg==4)printf("\nCe imagine veti cripta? Introduceti numele:\n");
-	if(alg==5)printf("\nCe imagine veti cripta? Introduceti numele:\n");
 	char nume1[100],nume2[100];
 	while(1)
 	{	scanf("%s",nume1);
 		f=fopen(nume1,"rb");
 		if(f==NULL)
-		{if(alg==1)printf("\nNume incorect, reincercati:\n");
-		if(alg==2)printf("\nNume incorect, reincercati:\n");
-		if(alg==3)printf("\nNume incorect, reincercati:\n");
-		if(alg==4)printf("\nNume incorect, reincercati:\n");
-		if(alg==5)printf("\nNume incorect, reincercati:\n");}
+		{if(alg==1)printf("\nIncorrect name, try again:\n");
+		if(alg==2)printf("\nNume incorect, reincercati:\n");}
 		else break;}
-	if(alg==1)printf("\nNoul nume al imaginii criptate:\n");
+	if(alg==1)printf("\nThe new name of the encrypted image:\n");
 	if(alg==2)printf("\nNoul nume al imaginii criptate:\n");
-	if(alg==3)printf("\nNoul nume al imaginii criptate:\n");
-	if(alg==4)printf("\nNoul nume al imaginii criptate:\n");
-	if(alg==5)printf("\nNoul nume al imaginii criptate:\n");
 	scanf("%s",nume2);
 	g=fopen(nume2,"wb");
 	pixel *p=urcare(f,header);
 	unsigned int  SV,seed;
-	if(alg==1)printf("\nIntroduceti doua chei unice intre 1 si 4294967295:");
+	if(alg==1)printf("\nEnter two unique keys between 1 and 4294967295:");
 	if(alg==2)printf("\nIntroduceti doua chei unice intre 1 si 4294967295:");
-	if(alg==3)printf("\nIntroduceti doua chei unice intre 1 si 4294967295:");
-	if(alg==4)printf("\nIntroduceti doua chei unice intre 1 si 4294967295:");
-	if(alg==5)printf("\nIntroduceti doua chei unice intre 1 si 4294967295:");
 		scanf("%u %u",&seed,&SV);
 	unsigned k,l;
 	unsigned long long i;
@@ -106,38 +94,26 @@ void partea_de_criptare()
 void partea_de_decriptare()
 {
 	FILE *f,*g;
-	if(alg==1)printf("\nCe imagine veti decripta? Introduceti numele:\n");
+	if(alg==1)printf("\nWhat image will you decrypt? Enter the name:\n");
 	if(alg==2)printf("\nCe imagine veti decripta? Introduceti numele:\n");
-	if(alg==3)printf("\nCe imagine veti decripta? Introduceti numele:\n");
-	if(alg==4)printf("\nCe imagine veti decripta? Introduceti numele:\n");
-	if(alg==5)printf("\nCe imagine veti decripta? Introduceti numele:\n");
 	char nume1[100],nume2[100];
 	while(1)
 	{	scanf("%s",nume1);
 		f=fopen(nume1,"rb");
 		if(f==NULL)
-		{if(alg==1)printf("\nNume incorect, reincercati:\n");
-		if(alg==2)printf("\nNume incorect, reincercati:\n");
-		if(alg==3)printf("\nNume incorect, reincercati:\n");
-		if(alg==4)printf("\nNume incorect, reincercati:\n");
-		if(alg==5)printf("\nNume incorect, reincercati:\n");}
+		{if(alg==1)printf("\nIncorrect name, try again:\n");
+		if(alg==2)printf("\nNume incorect, reincercati:\n");}
 		else break;}
-	if(alg==1)printf("\nNoul nume al imaginii decriptate:\n");
+	if(alg==1)printf("\nThe new name of the decrypted image:\n");
 	if(alg==2)printf("\nNoul nume al imaginii decriptate:\n");
-	if(alg==3)printf("\nNoul nume al imaginii decriptate:\n");
-	if(alg==4)printf("\nNoul nume al imaginii decriptate:\n");
-	if(alg==5)printf("\nNoul nume al imaginii decriptate:\n");
 	scanf("%s",nume2);
 	g=fopen(nume2,"wb");
 	pixel *p=urcare(f,header);
 	unsigned int  SV,seed;
 	unsigned k,l;
 	unsigned long long i;
-	if(alg==1)printf("\nIntroduceti doua chei unice intre 0 si 4294967295:");
+	if(alg==1)printf("\nEnter two unique keys between 0 and 4294967295:");
 	if(alg==2)printf("\nIntroduceti doua chei unice intre 0 si 4294967295:");
-	if(alg==3)printf("\nIntroduceti doua chei unice intre 0 si 4294967295:");
-	if(alg==4)printf("\nIntroduceti doua chei unice intre 0 si 4294967295:");
-	if(alg==5)printf("\nIntroduceti doua chei unice intre 0 si 4294967295:");
 		scanf("%u %u",&seed,&SV);
 	for(k=0;k<header[7]/2;k++)
 		for(l=0;l<header[6];l++)
@@ -175,7 +151,7 @@ void alegere()
 
 	if(alg==1)
 	{	while(1)
-		{	printf("\nCe doriti sa faceti? \n	1)criptare imagine \n	2)decriptare imagine\n	3)exit\n");
+		{	printf("\nWhat do you want to do? \n	1)encrypt file \n	2)decrypt file\n	3)exit\n");
 		unsigned  x;char xx[100];scanf("%s",xx);
 	if(strlen(xx)==1){
 		x=(unsigned)(xx[0]-'0');
@@ -195,44 +171,12 @@ void alegere()
 	if(x==3) return;}
 	if(x>3||x<=0)
 	 printf("\n\n\n\n\n Try again! \n\n\n\n\n");}}
-	if(alg==3)
-	{	while(1)
-		{			printf("\nCe doriti sa faceti? \n	1)criptare imagine \n	2)decriptare imagine\n	3)exit\n");
-		unsigned  x;char xx[100];scanf("%s",xx);
-	if(strlen(xx)==1){
-		x=(unsigned)(xx[0]-'0');
-	if(x==1) partea_de_criptare();
-	if(x==2) partea_de_decriptare();
-	if(x==3) return;}
-	if(x>3||x<=0)
-	 printf("\n\n\n\n\n Try again! \n\n\n\n\n");}}
-	if(alg==4)
-	{	while(1)
-		{			printf("\nCe doriti sa faceti? \n	1)criptare imagine \n	2)decriptare imagine\n	3)exit\n");
-		unsigned  x;char xx[100];scanf("%s",xx);
-	if(strlen(xx)==1){
-		x=(unsigned)(xx[0]-'0');
-	if(x==1) partea_de_criptare();
-	if(x==2) partea_de_decriptare();
-	if(x==3) return;}
-	if(x>3||x<=0)
-	 printf("\n\n\n\n\n Try again! \n\n\n\n\n");}}
-	if(alg==5)
-	{	while(1)
-		{			printf("\nCe doriti sa faceti? \n	1)criptare imagine \n	2)decriptare imagine\n	3)exit\n");
-				unsigned  x;char xx[100];scanf("%s",xx);
-			if(strlen(xx)==1){
-				x=(unsigned)(xx[0]-'0');
-			if(x==1) partea_de_criptare();
-			if(x==2) partea_de_decriptare();
-			if(x==3) return;}
-			if(x>3||x<=0)
-			 printf("\n\n\n\n\n Try again! \n\n\n\n\n");}}
+	
 }
 int main()
 {
 	while(1)
-	{		printf("\nSelect your language (pick a number):\n	1)english\n	2)germain\n	3)romanian\n	4)french\n	5)spanish\n\n");
+	{		printf("\nSelect your language (pick a number):\n	1)english\n	2)romana\n	");
 		scanf("%s",aleg);
 		if(strlen(aleg)==1)
 		{alg=(unsigned)(aleg[0]-'0');
