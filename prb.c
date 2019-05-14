@@ -31,8 +31,8 @@ pixel* urcare(FILE *f,int *header)
 void partea_de_criptare()
 {
 	FILE *f,*g;
-	if(alg==1)printf("\nWhat image do you encrypt? Enter the name:\n");
-	if(alg==2)printf("\nCe imagine veti cripta? Introduceti numele:\n");
+	if(alg==1)printf("\nWhat image do you encrypt? Enter the name:{EX: (...).bmp}\n");
+	if(alg==2)printf("\nCe imagine veti cripta? Introduceti numele:{EX: (...).bmp}\n");
 	char nume1[100],nume2[100];
 	while(1)
 	{	scanf("%s",nume1);
@@ -41,8 +41,8 @@ void partea_de_criptare()
 		{if(alg==1)printf("\nIncorrect name, try again:\n");
 		if(alg==2)printf("\nNume incorect, reincercati:\n");}
 		else break;}
-	if(alg==1)printf("\nThe new name of the encrypted image:\n");
-	if(alg==2)printf("\nNoul nume al imaginii criptate:\n");
+	if(alg==1)printf("\nThe new name of the encrypted image:{EX: (...).bmp}\n");
+	if(alg==2)printf("\nNoul nume al imaginii criptate:{EX: (...).bmp}\n");
 	scanf("%s",nume2);
 	g=fopen(nume2,"wb");
 	pixel *p=urcare(f,header);
@@ -94,8 +94,8 @@ void partea_de_criptare()
 void partea_de_decriptare()
 {
 	FILE *f,*g;
-	if(alg==1)printf("\nWhat image will you decrypt? Enter the name:\n");
-	if(alg==2)printf("\nCe imagine veti decripta? Introduceti numele:\n");
+	if(alg==1)printf("\nWhat image will you decrypt? Enter the name:{EX: (...).bmp}\n");
+	if(alg==2)printf("\nCe imagine veti decripta? Introduceti numele:{EX: (...).bmp}\n");
 	char nume1[100],nume2[100];
 	while(1)
 	{	scanf("%s",nume1);
@@ -104,8 +104,8 @@ void partea_de_decriptare()
 		{if(alg==1)printf("\nIncorrect name, try again:\n");
 		if(alg==2)printf("\nNume incorect, reincercati:\n");}
 		else break;}
-	if(alg==1)printf("\nThe new name of the decrypted image:\n");
-	if(alg==2)printf("\nNoul nume al imaginii decriptate:\n");
+	if(alg==1)printf("\nThe new name of the decrypted image:{EX: (...).bmp}\n");
+	if(alg==2)printf("\nNoul nume al imaginii decriptate:{EX: (...).bmp}\n");
 	scanf("%s",nume2);
 	g=fopen(nume2,"wb");
 	pixel *p=urcare(f,header);
